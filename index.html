@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route 66 - Menú Digital</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --r66-blue: #141A2B;
+            --r66-gold: #C5A059;
+            --r66-dark-blue: #0E121E;
+        }
+
+        body {
+            background-color: var(--r66-blue);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .header-menu {
+            background-color: var(--r66-dark-blue);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid var(--r66-gold);
+        }
+
+        .gold-text { color: var(--r66-gold); }
+        
+        .category-btn {
+            background: none;
+            border: none;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .category-btn.active {
+            color: var(--r66-gold);
+            border-bottom: 2px solid var(--r66-gold);
+        }
+
+        .menu-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .plate-img-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid var(--r66-gold);
+            object-fit: cover;
+        }
+
+        .btn-add {
+            background-color: var(--r66-gold);
+            color: black;
+            font-weight: bold;
+            border-radius: 20px;
+            border: none;
+        }
+
+        .bottom-nav {
+            background-color: var(--r66-dark-blue);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-menu mb-4">
+        <h2 class="gold-text mb-0">ROUTE 66</h2>
+        <small>La mejor onda y la comida más rica.</small>
+    </div>
+
+    <div class="container pb-5 mb-5">
+        
+        <div class="d-flex overflow-auto mb-4 text-nowrap pb-2">
+            <button class="category-btn active">Aperitivos</button>
+            <button class="category-btn">Burgers</button>
+            <button class="category-btn">Costillas</button>
+            <button class="category-btn">Bebidas</button>
+            <button class="category-btn">Postres</button>
+        </div>
+
+        <h5 class="gold-text mb-3">APERITIVOS</h5>
+        <div class="row">
+            <div class="col-6 mb-3 text-center">
+                <img src="https://via.placeholder.com/150" class="plate-img-circle mb-2" alt="Wings">
+                <div class="small fw-bold">Spicy Buffalo Wings</div>
+                <div class="gold-text">$9.990</div>
+            </div>
+            <div class="col-6 mb-3 text-center">
+                <img src="https://via.placeholder.com/150" class="plate-img-circle mb-2" alt="Empanaditas">
+                <div class="small fw-bold">Empanaditas Mar</div>
+                <div class="gold-text">$11.990</div>
+            </div>
+        </div>
+
+        <h5 class="gold-text mt-4 mb-3">BURGERS & SANDWICHES</h5>
+        <div class="menu-card d-flex p-3">
+            <img src="https://via.placeholder.com/100" class="rounded me-3" style="width: 100px; height: 100px; object-fit: cover;">
+            <div class="flex-grow-1">
+                <h6 class="mb-1">The Route 66 Burger</h6>
+                <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Doble carne angus, queso cheddar, tocino y salsa secreta.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="gold-text fw-bold">$14.990</span>
+                    <button class="btn btn-sm btn-add px-3">AÑADIR +</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <nav class="navbar fixed-bottom bottom-nav p-0">
+        <div class="container-fluid d-flex justify-content-around text-center py-2">
+            <div class="small"><div class="gold-text">🏠</div>Inicio</div>
+            <div class="small"><div class="gold-text">📋</div>Menú</div>
+            <div class="small text-secondary"><div class="position-relative">🛒<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5rem;">2</span></div>Carro</div>
+            <div class="small text-secondary">👤 Perfil</div>
+        </div>
+    </nav>
+
+</body>
+</html>
