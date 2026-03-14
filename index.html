@@ -41,6 +41,10 @@
             color: var(--r66-gold);
             border-bottom: 2px solid var(--r66-gold);
         }
+        .category-btn.active{
+            color: var(--r66-gold);
+            border-bottom: 2px solid var(--r66-gold);
+        }
 
         .menu-card{
             background-color: rgba(255, 255, 255, 0.05);
@@ -97,6 +101,18 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
              filter: brightness(0.8); /* oscurece la imagen */
         }
+        .menu-img{
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 576px){
+            .menu-card { flex-direction: column !important; }
+            .menu-img{ width:100%; height:180px; border-radius:12px; }
+            .btn-ar img{ max-width:40px; }
+        }
     </style>
 </head>
 <body>
@@ -108,26 +124,26 @@
 
     <div class="container pb-5 mb-5">
         <!-- scroll horizontal -->
-        <div class="d-flex mb-4 pb-2 overflow-auto ">
-            <button class="category-btn active flex-shrink-0">Aperitivos</button>
-            <button class="category-btn flex-shrink-0">Pastas</button>
-            <button class="category-btn flex-shrink-0">Burguer & Sandwiches</button>
-            <button class="category-btn flex-shrink-0">Pizzas</button>
-            <button class="category-btn flex-shrink-0">Ensaladas</button>
-            <button class="category-btn flex-shrink-0">Specialities & Ribs</button>
-            <button class="category-btn flex-shrink-0">Postres</button>
-            <button class="category-btn flex-shrink-0">Cócteles</button>
+        <div class="d-flex mb-4 pb-2 overflow-auto justify-content-center flex-wrap gap-2" role="tablist" aria-label="Categorías">
+            <button class="category-btn active flex-shrink-0" data-cat="Aperitivos">Aperitivos</button>
+            <button class="category-btn flex-shrink-0" data-cat="Pastas">Pastas</button>
+            <button class="category-btn flex-shrink-0" data-cat="Burgers">Burguer & Sandwiches</button>
+            <button class="category-btn flex-shrink-0" data-cat="Pizzas">Pizzas</button>
+            <button class="category-btn flex-shrink-0" data-cat="Ensaladas">Ensaladas</button>
+            <button class="category-btn flex-shrink-0" data-cat="Specialties">Specialities & Ribs</button>
+            <button class="category-btn flex-shrink-0" data-cat="Postres">Postres</button>
+            <button class="category-btn flex-shrink-0" data-cat="Cocteles">Cócteles</button>
         </div>
 
         <div class="categoryDiv container">
     <h5 class="gold-text mt-4 mb-3">Aperitivos</h5>
-    <div class="row">
+    <div class="row" id="menuItems">
         <!-- Platillo -->
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 col-md-6 mb-3" data-category="Aperitivos">
             <div class="menu-card d-flex flex-column flex-sm-row p-3">
                 <img src="assets/IMG/comida.jfif"
-                    class="rounded mb-3 mb-sm-0 me-sm-3"
-                    style="width: 100px; height: 100px; object-fit: cover;">
+                    class="menu-img mb-3 mb-sm-0 me-sm-3"
+                    alt="Plato comida">
                 <div class="flex-grow-1">
                 <h6 class="mb-1">The Route 66 Burger</h6>
                 <p class="small text-secondary mb-2" style="font-size: 0.75rem;">
@@ -135,18 +151,18 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="gold-text fw-bold">$14.990</span>
-                    <button class="btn btn-sm btn-add btn-ar"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="" srcset=""></button>
+                    <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR" srcset=""></button>
                 </div>
                 </div>
             </div>
         </div>
-        <!-- hola -->
+
         <!-- Otro platillo -->
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 col-md-6 mb-3" data-category="Aperitivos">
             <div class="menu-card d-flex flex-column flex-sm-row p-3">
                 <img src="assets/IMG/comida.jfif"
-                    class="rounded mb-3 mb-sm-0 me-sm-3"
-                    style="width: 100px; height: 100px; object-fit: cover;">
+                    class="menu-img mb-3 mb-sm-0 me-sm-3"
+                    alt="Plato comida">
                 <div class="flex-grow-1">
                 <h6 class="mb-1">Empanaditas Mar</h6>
                 <p class="small text-secondary mb-2" style="font-size: 0.75rem;">
@@ -154,7 +170,7 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="gold-text fw-bold">$11.990</span>
-                    <button class="btn btn-sm btn-add btn-ar"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="" srcset=""></button>
+                    <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR" srcset=""></button>
                 </div>
                 </div>
             </div>
@@ -162,11 +178,11 @@
 
 
          <!-- Platillo -->
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 col-md-6 mb-3" data-category="Aperitivos">
             <div class="menu-card d-flex flex-column flex-sm-row p-3">
                 <img src="assets/IMG/comida.jfif"
-                    class="rounded mb-3 mb-sm-0 me-sm-3"
-                    style="width: 100px; height: 100px; object-fit: cover;">
+                    class="menu-img mb-3 mb-sm-0 me-sm-3"
+                    alt="Plato comida">
                 <div class="flex-grow-1">
                 <h6 class="mb-1">The Route 66 Burger</h6>
                 <p class="small text-secondary mb-2" style="font-size: 0.75rem;">
@@ -174,18 +190,18 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="gold-text fw-bold">$14.990</span>
-                    <button class="btn btn-sm btn-add btn-ar"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="" srcset=""></button>
+                    <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR" srcset=""></button>
                 </div>
                 </div>
             </div>
         </div>
 
         <!-- Otro platillo -->
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 col-md-6 mb-3" data-category="Aperitivos">
             <div class="menu-card d-flex flex-column flex-sm-row p-3">
                 <img src="assets/IMG/comida.jfif"
-                    class="rounded mb-3 mb-sm-0 me-sm-3"
-                    style="width: 100px; height: 100px; object-fit: cover;">
+                    class="menu-img mb-3 mb-sm-0 me-sm-3"
+                    alt="Plato comida">
                 <div class="flex-grow-1">
                 <h6 class="mb-1">Empanaditas Mar</h6>
                 <p class="small text-secondary mb-2" style="font-size: 0.75rem;">
@@ -193,7 +209,7 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="gold-text fw-bold">$11.990</span>
-                    <button class="btn btn-sm btn-add btn-ar"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="" srcset=""></button>
+                    <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR" srcset=""></button>
                 </div>
                 </div>
             </div>
@@ -201,11 +217,11 @@
 
 
          <!-- Platillo -->
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 col-md-6 mb-3" data-category="Aperitivos">
             <div class="menu-card d-flex flex-column flex-sm-row p-3">
                 <img src="assets/IMG/comida.jfif"
-                    class="rounded mb-3 mb-sm-0 me-sm-3"
-                    style="width: 100px; height: 100px; object-fit: cover;">
+                    class="menu-img mb-3 mb-sm-0 me-sm-3"
+                    alt="Plato comida">
                 <div class="flex-grow-1">
                 <h6 class="mb-1">The Route 66 Burger</h6>
                 <p class="small text-secondary mb-2" style="font-size: 0.75rem;">
@@ -213,18 +229,18 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="gold-text fw-bold">$14.990</span>
-                    <button class="btn btn-sm btn-add btn-ar"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="" srcset=""></button>
+                    <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR" srcset=""></button>
                 </div>
                 </div>
             </div>
         </div>
 
         <!-- Otro platillo -->
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 col-md-6 mb-3" data-category="Aperitivos">
             <div class="menu-card d-flex flex-column flex-sm-row p-3">
                 <img src="assets/IMG/comida.jfif"
-                    class="rounded mb-3 mb-sm-0 me-sm-3"
-                    style="width: 100px; height: 100px; object-fit: cover;">
+                    class="menu-img mb-3 mb-sm-0 me-sm-3"
+                    alt="Plato comida">
                 <div class="flex-grow-1">
                 <h6 class="mb-1">Empanaditas Mar</h6>
                 <p class="small text-secondary mb-2" style="font-size: 0.75rem;">
@@ -232,19 +248,19 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="gold-text fw-bold">$11.990</span>
-                    <button class="btn btn-sm btn-add btn-ar"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="" srcset=""></button>
+                    <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR" srcset=""></button>
                 </div>
                 </div>
             </div>
         </div>
 
 
-         <!-- Platillo -->
-        <div class="col-12 col-md-6 mb-3">
+        <!-- Platillo -->
+        <div class="col-12 col-md-6 mb-3" data-category="Aperitivos">
             <div class="menu-card d-flex flex-column flex-sm-row p-3">
                 <img src="assets/IMG/comida.jfif"
-                    class="rounded mb-3 mb-sm-0 me-sm-3"
-                    style="width: 100px; height: 100px; object-fit: cover;">
+                    class="menu-img mb-3 mb-sm-0 me-sm-3"
+                    alt="The Route 66 Burger">
                 <div class="flex-grow-1">
                 <h6 class="mb-1">The Route 66 Burger</h6>
                 <p class="small text-secondary mb-2" style="font-size: 0.75rem;">
@@ -252,18 +268,18 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="gold-text fw-bold">$14.990</span>
-                    <button class="btn btn-sm btn-add btn-ar"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="" srcset=""></button>
+                    <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR" srcset=""></button>
                 </div>
                 </div>
             </div>
         </div>
 
         <!-- Otro platillo -->
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 col-md-6 mb-3" data-category="Aperitivos">
             <div class="menu-card d-flex flex-column flex-sm-row p-3">
                 <img src="assets/IMG/comida.jfif"
-                    class="rounded mb-3 mb-sm-0 me-sm-3"
-                    style="width: 100px; height: 100px; object-fit: cover;">
+                    class="menu-img mb-3 mb-sm-0 me-sm-3"
+                    alt="Empanaditas Mar">
                 <div class="flex-grow-1">
                 <h6 class="mb-1">Empanaditas Mar</h6>
                 <p class="small text-secondary mb-2" style="font-size: 0.75rem;">
@@ -271,21 +287,770 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="gold-text fw-bold">$11.990</span>
-                    <button class="btn btn-sm btn-add btn-ar"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="" srcset=""></button>
+                    <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR" srcset=""></button>
                 </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pastas -->
+        <div class="col-12 col-md-6 mb-3" data-category="Pastas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Pasta Alfredo">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Pasta Alfredo</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Pasta fresca con salsa cremosa Alfredo y parmigiano.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$12.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Pastas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Pasta Boloñesa">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Pasta Boloñesa</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Ragú tradicional con pasta al dente y queso rallado.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$13.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 mb-3" data-category="Pastas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Pasta Carbonara">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Pasta Carbonara</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Tallarines con panceta, huevo y pecorino.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$13.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Pastas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Pasta Pesto">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Pasta al Pesto</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Pasta con salsa pesto de albahaca fresca y piñones.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$12.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Pastas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Lasaña">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Lasaña Boloñesa</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Capas de pasta, ragú, bechamel y queso gratinado.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$14.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pizzas -->
+        <div class="col-12 col-md-6 mb-3" data-category="Pizzas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Pizza Margarita">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Pizza Margarita</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Tomate, mozzarella fresca y albahaca.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$10.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Pizzas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Pizza Pepperoni">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Pizza Pepperoni</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Salsa de tomate, queso y pepperoni crocante.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$11.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Pizzas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Four Seasons">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Four Seasons</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Cuatro secciones: champiñones, jamón, alcachofas y aceitunas.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$12.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Pizzas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Hawaiian Pizza">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Hawaiian</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Jamón, piña y extra queso.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$11.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Pizzas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Quattro Formaggi">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Quattro Formaggi</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Mozzarella, gorgonzola, parmesano y pecorino.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$13.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Pizzas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="BBQ Chicken Pizza">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">BBQ Chicken</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Pollo, salsa BBQ, cebolla morada y cilantro.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$12.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Burgers (8 platos) -->
+        <div class="col-12 col-md-6 mb-3" data-category="Burgers">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Classic Cheeseburger">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Classic Cheeseburger</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Carne jugosa, cheddar, lechuga y tomate.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$9.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Burgers">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Bacon BBQ Burger">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Bacon BBQ Burger</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Tocino crocante y salsa BBQ casera.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$11.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Burgers">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Veggie Burger">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Veggie Burger</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Hamburguesa vegetal con salsa especial.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$8.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Burgers">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Blue Cheese Burger">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Blue Cheese Burger</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Queso azul derretido y cebolla caramelizada.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$12.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Burgers">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Mushroom Swiss Burger">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Mushroom Swiss Burger</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Champiñones salteados y queso suizo.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$11.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Burgers">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Double Angus">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Double Angus</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Doble carne Angus para los más hambrientos.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$15.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Burgers">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Spicy Jalapeño Burger">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Spicy Jalapeño Burger</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Pimientos jalapeños y salsa picante.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$12.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ensaladas (8 platos) -->
+        <div class="col-12 col-md-6 mb-3" data-category="Ensaladas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Caesar Salad">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Caesar Salad</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Lechuga romana, crutones y aderezo Caesar.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$7.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Ensaladas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Greek Salad">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Greek Salad</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Tomate, pepino, aceitunas y queso feta.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$8.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Ensaladas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Arugula & Pear">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Arugula & Pear</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Rúcula, pera, nueces y aderezo balsámico.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$9.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Ensaladas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Caprese Salad">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Caprese Salad</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Mozzarella fresca, tomate y albahaca.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$8.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Ensaladas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Quinoa Salad">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Quinoa Salad</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Quinoa, vegetales asados y aderezo cítrico.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$9.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Ensaladas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Cobb Salad">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Cobb Salad</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Lechuga, pollo, aguacate, huevo y bacon.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$10.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Ensaladas">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Nicoise Salad">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Nicoise Salad</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Atún, huevo, judías verdes y aceitunas.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$10.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specialties (8 platos) -->
+        <div class="col-12 col-md-6 mb-3" data-category="Specialties">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Smoked Ribs">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Smoked Ribs</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Costillas ahumadas lentamente con salsa BBQ.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$18.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Specialties">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="BBQ Ribs">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">BBQ Ribs</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Ribs con glaseado BBQ y guarnición de papas.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$17.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Specialties">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Steak Frites">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Steak Frites</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Bife jugoso con papas fritas caseras.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$19.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Specialties">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Grilled Salmon">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Grilled Salmon</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Salmón a la parrilla con verduras al vapor.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$16.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Specialties">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Lobster Mac">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Lobster Mac</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Mac & cheese con trozos de langosta.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$21.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Specialties">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Seafood Paella">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Seafood Paella</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Arroz con mariscos al estilo tradicional.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$18.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Specialties">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Beef Brisket">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Beef Brisket</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Brisket ahumado servido con puré casero.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$17.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Specialties">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Rotisserie Chicken">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Whole Rotisserie Chicken</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Pollo rostizado entero con hierbas aromáticas.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$22.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Postres (8 platos) -->
+        <div class="col-12 col-md-6 mb-3" data-category="Postres">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Cheesecake">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Cheesecake</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Tarta de queso con coulis de frutos rojos.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$6.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Postres">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Chocolate Lava Cake">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Chocolate Lava Cake</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Bizcocho de chocolate con centro líquido.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$6.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Postres">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Tiramisu">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Tiramisu</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Postre clásico italiano con café y mascarpone.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$6.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Postres">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Apple Pie">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Apple Pie</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Tarta de manzana con masa casera.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$5.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Postres">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Creme Brulee">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Creme Brulee</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Crema quemada con caramelo crujiente.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$6.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Postres">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Ice Cream Trio">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Ice Cream Trio</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Tres sabores a elección.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$4.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Postres">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Churros">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Churros</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Churros con azúcar y salsa de chocolate.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$4.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cocteles (8 bebidas) -->
+        <div class="col-12 col-md-6 mb-3" data-category="Cocteles">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Mojito">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Mojito</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Ron, menta, lima y soda.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$5.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Cocteles">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Old Fashioned">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Old Fashioned</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Whiskey, azúcar y bitters.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$6.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Cocteles">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Martini">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Martini</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Ginebra y vermut, servido frío.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$6.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Cocteles">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Margarita">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Margarita</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Tequila, triple sec y jugo de lima.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$6.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Cocteles">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Negroni">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Negroni</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Ginebra, Campari y vermut rojo.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$6.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Cocteles">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Piña Colada">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Piña Colada</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Ron, piña y crema de coco.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$6.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Cocteles">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Cosmopolitan">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Cosmopolitan</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Vodka, triple sec, arándanos y lima.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$6.990</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3" data-category="Cocteles">
+            <div class="menu-card d-flex flex-column flex-sm-row p-3">
+                <img src="assets/IMG/comida.jfif" class="menu-img mb-3 mb-sm-0 me-sm-3" alt="Whiskey Sour">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">Whiskey Sour</h6>
+                    <p class="small text-secondary mb-2" style="font-size: 0.75rem;">Whiskey, limón y clara de huevo (opcional).</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="gold-text fw-bold">$6.490</span>
+                        <button class="btn btn-sm btn-add btn-ar" aria-label="Ver en AR"><img class="ARIcon img-fluid" src="assets/IMG/copia.png" style="max-width:50px;" alt="Icono AR"></button>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
-    
+    </div>
 
-    
+    <footer class="site-footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 mb-3">
+                    <h5 class="gold-text">Route 66</h5>
+                    <img src="assets/references/logo-contraste.7ddc12ebe66a8491be1140703728458f.svg" alt="Logo Route 66" class="img-fluid" style="max-width: 150px;"> 
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <h6 class="gold-text">Sobre nosotros</h6>
+                    <p class="small text">Somos un restaurante familiar que mezcla sabores clásicos con toques modernos. Atención cordial y platos preparados con ingredientes frescos.</p>
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <h6 class="gold-text">Redes sociales</h6>
+                    <ul class="list-unstyled footer-links small">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center small text mt-3">© <span id="year"></span> Route 66. Todos los derechos reservados.</div>
+        </div>
+    </footer>
 
+    <style>
+        .site-footer{
+            background-color: var(--r66-dark-blue);
+            border-top: 2px solid var(--r66-gold);
+            color: #fff;
+            padding: 24px 0;
+        }
+        .site-footer .footer-links a{ color: var(--r66-gold); text-decoration: none; }
+        .site-footer .text-muted{ color: rgba(255,255,255,0.75); }
+        @media (max-width:576px){ .site-footer { text-align: center; } }
+    </style>
 
-   
+    <script>
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 
+    <script>
+        // Filtrado simple por categoría
+        const catButtons = document.querySelectorAll('.category-btn');
+        const items = document.querySelectorAll('#menuItems [data-category]');
 
+        function setActive(btn){
+            catButtons.forEach(b=>b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function filterCategory(cat){
+            items.forEach(it=>{
+                if(!cat || it.getAttribute('data-category') === cat){
+                    it.style.display = '';
+                } else {
+                    it.style.display = 'none';
+                }
+            });
+        }
+
+        catButtons.forEach(btn=>{
+            btn.addEventListener('click', ()=>{
+                const cat = btn.dataset.cat;
+                setActive(btn);
+                filterCategory(cat);
+            });
+        });
+
+        // Inicializar mostrando la primera categoría
+        (function init(){
+            const active = document.querySelector('.category-btn.active');
+            if(active) filterCategory(active.dataset.cat);
+        })();
+    </script>
 
 </body>
 </html>
