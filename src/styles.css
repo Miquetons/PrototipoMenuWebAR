@@ -1,0 +1,253 @@
+:root {
+  --r66-night: #0f1724;
+  --r66-blue: #1d2f4f;
+  --r66-gold: #d4aa63;
+  --r66-cream: #f7f1e8;
+  --card-bg: rgba(255, 255, 255, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: white;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212, 170, 99, 0.18), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(70, 117, 201, 0.18), transparent 45%),
+    linear-gradient(145deg, #0a101a, #131f32 55%, #1b2740);
+}
+
+.app-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+}
+
+.header-menu {
+  text-align: center;
+  padding: 2.2rem 0 1.2rem;
+  border-bottom: 1px solid rgba(212, 170, 99, 0.4);
+}
+
+.brand-logo {
+  width: min(180px, 50vw);
+  height: auto;
+  display: block;
+  margin: 0 auto 0.55rem;
+}
+
+.brand-mark {
+  display: inline-block;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--r66-gold);
+}
+
+.brand-tagline {
+  margin: 0.4rem 0 0;
+  color: rgba(247, 241, 232, 0.85);
+}
+
+.app-main {
+  margin-top: 1.5rem;
+}
+
+.category-tabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.7rem;
+}
+
+.category-btn {
+  border: 1px solid rgba(212, 170, 99, 0.35);
+  background: rgba(17, 28, 46, 0.85);
+  color: #f1e9dd;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  border-radius: 999px;
+  padding: 0.62rem 0.9rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.category-btn.active,
+.category-btn:hover {
+  background: var(--r66-gold);
+  color: #111827;
+}
+
+.menu-section {
+  margin-top: 1.2rem;
+  border: 1px solid rgba(212, 170, 99, 0.28);
+  border-radius: 18px;
+  background: rgba(10, 17, 28, 0.45);
+  padding: 1.25rem;
+}
+
+.menu-section h2 {
+  margin: 0 0 1rem;
+  color: var(--r66-gold);
+  font-size: 1.35rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.menu-card {
+  display: flex;
+  gap: 0.85rem;
+  border: 1px solid rgba(212, 170, 99, 0.22);
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 0.9rem;
+  backdrop-filter: blur(3px);
+}
+
+.menu-thumb {
+  flex: 0 0 64px;
+  height: 64px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid rgba(212, 170, 99, 0.4);
+}
+
+.menu-content h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.menu-content p {
+  margin: 0.4rem 0 0.8rem;
+  color: rgba(247, 241, 232, 0.82);
+  font-size: 0.88rem;
+}
+
+.menu-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-footer strong {
+  color: var(--r66-gold);
+}
+
+.btn-ar {
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  padding: 0.2rem 0.45rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.btn-ar img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.btn-ar span {
+  font-size: 0.72rem;
+  color: rgba(247, 241, 232, 0.75);
+}
+
+.btn-ar-disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.site-footer {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  border-top: 1px solid rgba(212, 170, 99, 0.35);
+  padding-top: 1.2rem;
+  color: rgba(247, 241, 232, 0.86);
+}
+
+.site-footer h4,
+.site-footer h5 {
+  margin: 0 0 0.45rem;
+  color: var(--r66-gold);
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.site-footer ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.social-hint {
+  margin-bottom: 0.65rem;
+  color: rgba(247, 241, 232, 0.72);
+}
+
+.social-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.social-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  border: 1px solid rgba(212, 170, 99, 0.28);
+  padding: 0.3rem 0.65rem 0.3rem 0.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.social-icon {
+  min-width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: #111827;
+  background: linear-gradient(145deg, #e5bd7f, #c29143);
+}
+
+.footer-logo {
+  width: min(150px, 45vw);
+  height: auto;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+  }
+}
