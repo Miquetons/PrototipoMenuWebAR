@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import Header from "./components/Header";
 import CategoryTabs from "./components/CategoryTabs";
 import MenuSection from "./components/MenuSection";
+import ReservationSection from "./components/ReservationSection";
 import Footer from "./components/Footer";
 import { categories, menuItems } from "./data/menuData";
 
@@ -29,6 +30,8 @@ function App() {
         />
 
         <MenuSection title={activeLabel} items={filteredItems} />
+
+        <ReservationSection />
       </main>
 
       <Footer />
